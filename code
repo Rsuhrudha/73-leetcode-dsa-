@@ -1,0 +1,32 @@
+73. Set Matrix Zeroes
+STATEMENT:-
+Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
+code:-
+#dynamic input
+n=int(input()) #col number
+m=int(input()) #row number
+l=[[0]*n for i in range(m)] #installization of matrix to zeroes
+l1=[]
+for i in range(m):
+    l[i]=list(map(int,input().strip().split(' ')))[:n]
+for i ,sub in enumerate(l):
+    for j,element in enumerate(sub):
+        if element ==0:
+            l1.append((i,j))
+for i in l1:
+    row,col=i
+    for k in range(len(l[row])):
+        l[row][k]=0
+    for k in range(len(l)):
+        l[k][col]=0
+print(l)
+#NOTE:-
+enumerate function is used as we need both index and value at a time
+input:-
+3
+3
+1 1 1
+1 0 1
+1 1 1
+output:-
+[[1, 0, 1], [0, 0, 0], [1, 0, 1]]
